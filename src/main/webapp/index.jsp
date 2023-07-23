@@ -1,6 +1,6 @@
 <html>
 <body>
-<h1><font color='violet'> Welcome to My Shopping Page <font></h1>
+<h1><font color='blue'> Welcome to My Shopping Page <font></h1>
 
 <a href="www.google.com" >Click Here To Shop my products from google browser</a>
   
