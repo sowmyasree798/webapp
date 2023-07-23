@@ -1,0 +1,18 @@
+node {
+        stage('Hello') {
+               git branch: 'main', url: 'https://github.com/sowmyasree798/webapp.git'
+        }
+        stage('Maven Build'){
+            
+                def mavenHome = tool name: "Maven-3.9.3", type: "maven"
+                def mavenCMD = "${mavenHome}/bin/mvn"
+                sh "${mavenCMD} clean package"
+            
+        }
+        stage('deploy to apache')
+        {
+          
+              deploy adapters: [tomcat9(credentialsId: '402f3ddf-5ebe-47d4-b65c-7b68109bd9ce', path: '', url: 'http://3.84.189.141:8080/')], contextPath: 'Maven web app', war: 'target/01-maven-web-app.war'  
+            }
+    }
+
